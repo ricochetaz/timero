@@ -261,9 +261,9 @@ begin
   end;
   TrayIcon1.Hint := APPNAME_CAPTION + lblStatus.Caption;
 
-  // Вычисляем процент прогресса (избежим деления на ноль)
+  // Вычисляем процент прогресса (шкала уменьшается по мере убывания времени)
   if FTotalSeconds > 0 then
-    ProgressPercent := Round(((FTotalSeconds - FRemainingSeconds) / FTotalSeconds) * 100)
+    ProgressPercent := Round((FRemainingSeconds / FTotalSeconds) * 100)
   else
     ProgressPercent := 0;
 
